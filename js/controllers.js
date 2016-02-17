@@ -2,8 +2,8 @@ app.controller('mainCtrl', function($scope, List, User) {
 
 	$scope.list = List;
 
-	// $scope.user = User;
-	User.$bindTo($scope, 'user');
+	$scope.user = User;
+	// User.$bindTo($scope, 'user');
 
 	$scope.add = function(desc) {
 		$scope.list.$add({
@@ -19,14 +19,20 @@ app.controller('mainCtrl', function($scope, List, User) {
 //Auth.login({username: , password: })
 //Auth.register({username: , password: })
 
-app.controller('profileCtrl', function() {
-	console.log('profile');
+app.controller('profileCtrl', function($scope, Auth, fbAuth, Profile) {
+	$scope.userInfo = fbAuth.$getAuth();
+	$scope.profile = Profile($scope.userInfo.uid);
+	console.log($scope.profile);
+	$scope.profile.anything = 'anything'
+	$scope.profile.$save();
+	
+	// console.log('user info:', $scope.profile);
 })
 
 app.controller('navCtrl', function($scope, $state, Auth, fbAuth) {
 
 	fbAuth.$onAuth(function(authData) {
-		console.log('authData:', authData);
+		// console.log('authData:', authData);
 		$scope.authData = authData;
 	});
 

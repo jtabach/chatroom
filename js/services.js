@@ -16,6 +16,12 @@ app.factory('User', function(fbRef, $firebaseObject) {
 	return $firebaseObject(userRef);
 });
 
+app.factory('Profile', function(fbRef, $firebaseObject) {
+	return function(uid) {
+		var ref = fbRef.child('profiles').child(uid);
+		return $firebaseObject(ref);
+	}
+})	
 
 app.service('Auth', function(fbAuth) {
 
