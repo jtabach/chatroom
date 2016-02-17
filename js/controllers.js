@@ -53,13 +53,7 @@ app.controller('userCtrl', function($scope, $state, Auth) {
 
 		if ($scope.state === 'login') {
 			Auth.login($scope.user)
-			.then(function(authData) {
-				$state.go('home');
-			})
-			.catch(function() {
-				resetForm();
-				alert('Invalid email or password');
-			});
+			.then(redirectHome, invalidLogin)
 		} else {
 			if ($scope.user.password !== $scope.user.password2) {
 				resetForm();
@@ -69,20 +63,28 @@ app.controller('userCtrl', function($scope, $state, Auth) {
 					email: $scope.user.email,
 					password: $scope.user.password
 				})
-				.then(function(authData) {
-					console.log('authData:', authData);
-					$state.go('home');
-				})
-				.catch(function(err) {
-					resetForm();
-					alert('Email already exists');
-					console.log('err:', err);
-				});
+				.then(redirectHome)
+				.catch(existingUser);
 			}
 		}
 
-		function redirectHome() {
+		function redirectHome(authData) {
+			console.log('authData:', authData);
+			$state.go('home');
+		}
 
+		function invalidLogin(authData) {
+			invalidEntry(authData, 'Invalid email or password')
+		}
+
+		function existingUser(authData) {
+			invalidEntry(authData, 'Email already exists')
+		}
+
+		function invalidEntry(err, message) {
+			resetForm();
+			alert(message);
+			console.log('err:', err)
 		}
 
 		function resetForm() {
