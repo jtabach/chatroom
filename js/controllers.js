@@ -16,8 +16,25 @@ app.controller('mainCtrl', function($scope, List, User) {
 
 });
 
-//Auth.login({username: , password: })
-//Auth.register({username: , password: })
+app.controller('chatCtrl', function($scope, Auth, fbAuth, Profile, Chat) {
+	$scope.userInfo = fbAuth.$getAuth();
+	$scope.profile = Profile($scope.userInfo.uid);
+	console.log($scope.profile);
+	$scope.chat = Chat();
+
+	$scope.addMessage = () => {
+		console.log('add');
+		$scope.message = {
+			username: $scope.profile.username,
+			time: Date.now(),
+			body: $scope.chat.body
+		}
+
+		$scope.chat.$add($scope.message)
+	}
+
+	console.log($scope.chat);
+})
 
 app.controller('profileCtrl', function($scope, Auth, fbAuth, Profile) {
 	$scope.userInfo = fbAuth.$getAuth();

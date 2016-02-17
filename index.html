@@ -9,10 +9,12 @@
 	<script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
 
 	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-
+	<script src="/bower_components/moment/moment.js"></script>
+	<script src="/bower_components/angular-moment/angular-moment.js"></script>
 	<script src="/js/module.js"></script>
 	<script src="/js/services.js"></script>
 	<script src="/js/controllers.js"></script>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body ng-app="fireApp" ng-controller="mainCtrl">
 	<h1>AngularFire</h1>
@@ -28,6 +30,7 @@
 		<span ng-show='authData'>
 			<button ng-click="logout()">Logout</button>
 			<button ui-sref='user.profile'>Profile</button>
+			<button ui-sref='user.chat'>Chat</button>
 		</span>
 
 	</div>

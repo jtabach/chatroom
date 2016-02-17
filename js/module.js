@@ -16,7 +16,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
 				if (!fbAuth.$getAuth()) {
 					$state.go('home'); 
 				}
-			}})
+			}
+		})
+		.state('user.chat', {url: '/chat', templateUrl: '/html/chat.html', controller: 'chatCtrl',
+			onEnter: function($state, fbAuth) {
+				if (!fbAuth.$getAuth()) {
+					$state.go('home'); 
+				}
+			}
+		})
 	
 	$urlRouterProvider.otherwise('/');
 })

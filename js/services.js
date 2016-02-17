@@ -23,6 +23,13 @@ app.factory('Profile', function(fbRef, $firebaseObject) {
 	}
 });	
 
+app.factory('Chat', function(fbRef, $firebaseArray) {
+	return function() {
+		var ref = fbRef.child('chat');
+		return $firebaseArray(ref);
+	}
+})
+
 app.service('Auth', function(fbAuth) {
 
 	this.register = function(userObj) {
