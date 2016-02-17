@@ -4,3 +4,15 @@
 	width: 200px;
 	height: 200px;
 }
+
+.post {
+	margin: 0;
+}
+
+.date {
+	margin: 0 0 10px 0;
+}
+
+.right {
+	text-align: right;
+}

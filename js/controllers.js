@@ -21,16 +21,17 @@ app.controller('chatCtrl', function($scope, Auth, fbAuth, Profile, Chat) {
 	$scope.profile = Profile($scope.userInfo.uid);
 	console.log($scope.profile);
 	$scope.chat = Chat();
-
+	$scope.message = {};
 	$scope.addMessage = () => {
 		console.log('add');
 		$scope.message = {
 			username: $scope.profile.username,
-			time: Date.now(),
+			time: Date(),
 			body: $scope.chat.body
 		}
 
-		$scope.chat.$add($scope.message)
+		$scope.chat.$add($scope.message);
+		$scope.chat.body ='';
 	}
 
 	console.log($scope.chat);
