@@ -22,10 +22,22 @@ app.controller('mainCtrl', function($scope, List, User) {
 app.controller('profileCtrl', function($scope, Auth, fbAuth, Profile) {
 	$scope.userInfo = fbAuth.$getAuth();
 	$scope.profile = Profile($scope.userInfo.uid);
-	console.log($scope.profile);
-	$scope.profile.anything = 'anything'
-	$scope.profile.$save();
+	$scope.editing = false;
+
+	$scope.editProfile = () => {
+		$scope.editing = true;
+	}
+
+	$scope.saveProfile = () => {
+		$scope.editing = false;
+		$scope.profile.$save();
+	}
 	
+	$scope.profile.email = $scope.userInfo.password.email || null;
+	if(!$scope.profile.username) $scope.profile.username = 'Guest';
+	if(!$scope.profile.name) $scope.profile.name = 'Not Set';
+
+	// $scope.profile.$save();
 	// console.log('user info:', $scope.profile);
 })
 

@@ -1,1 +1,22 @@
 <h1>Profile</h1>
+
+
+
+<h3> Username: {{ profile.username || "Guest" }}</h3>
+<h3> Name: {{ profile.name || "Not Set" }}</h3>
+<h3> Email: {{ profile.email }}</h3>
+
+<button ng-click="editProfile()" ng-hide=editing>Edit Profile</button>
+
+
+<br>
+<br>
+<div ng-show=editing>
+	<label for="">Username:</label>
+	<input type="text" ng-model = 'profile.username'>
+	<label for="">Name:</label>
+	<input type="text" ng-model = 'profile.name'>
+	<label for="">Email:</label>
+	<input type="text" ng-model = 'profile.email'>
+	<button ng-click="saveProfile()">Save Edits</button>
+</div>
