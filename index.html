@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularFire</title>
+
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/firebase/firebase.js"></script>
+	<script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
+
+	<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+	<script src="/js/module.js"></script>
+	<script src="/js/services.js"></script>
+	<script src="/js/controllers.js"></script>
+</head>
+<body ng-app="fireApp" ng-controller="mainCtrl">
+	<h1>AngularFire</h1>
+
+	<div ng-controller='navCtrl'>
+		<button ui-sref='home'>Home</button>
+
+		<span ng-hide='authData'>
+			<button ui-sref='user.login'>Login</button>
+			<button ui-sref='user.register'>Register</button>
+		</span>
+
+		<span ng-show='authData'>
+			<button ng-click="logout()">Logout</button>
+			<button ui-sref='user.profile'>Profile</button>
+		</span>
+
+	</div>
+
+	<ui-view></ui-view>
+
+	<!-- <label for="">First</label>
+	<input type="text" ng-model='user.first' ng-change='user.$save()'>
+	<label for="">Last</label>
+	<input type="text" ng-model='user.last' ng-change='user.$save()'>
+	<br>
+
+	<pre>{{ user.first }} {{ user.last }}</pre>
+
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br>
+
+
+
+	<input type="text" ng-model="desc">
+	<button ng-click='add(desc)'> Add</button>
+	
+	<table>
+		<tbody>
+			<tr ng-repeat='item in list track by $index'>
+				<td>{{ item.desc }}</td>
+				<td> Complete
+					<input type="checkbox" ng-model='item.complete' ng-change='list.$save(item)'>
+				</td>
+			</tr>
+		</tbody>
+	</table> -->
+	
+</body>
+</html>

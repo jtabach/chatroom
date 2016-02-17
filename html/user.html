@@ -1,0 +1,9 @@
+<h1>{{ state | titlecase }}</h1>
+
+<label for="">Email:</label>
+<input type="text" ng-model = 'user.email'>
+<label for="">Password:</label>
+<input type="password" ng-model = 'user.password'>
+<label ng-show='state === "register"' for="">Password (again):</label>
+<input ng-show='state === "register"' type="password" ng-model = 'user.password2'>
+<button ng-click='submit()'>{{ state | titlecase }}</button>
