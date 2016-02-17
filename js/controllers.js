@@ -24,12 +24,13 @@ app.controller('chatCtrl', function($scope, Auth, fbAuth, Profile, Chat) {
 	$scope.message = {};
 	$scope.addMessage = () => {
 		console.log('add');
+		if (!$scope.profile.username) 
+				return alert('Please update your profile before chatting');
 		$scope.message = {
 			username: $scope.profile.username,
 			time: Date(),
 			body: $scope.chat.body
 		}
-
 		$scope.chat.$add($scope.message);
 		$scope.chat.body ='';
 	}
