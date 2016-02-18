@@ -6,6 +6,10 @@
 	padding: 2%;
 }
 
+.message {
+	border: 1px solid black;
+}
+
 .post {
 	margin: 0;
 }

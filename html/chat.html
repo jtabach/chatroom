@@ -1,7 +1,7 @@
 <h1>Chat Room</h1>
 
 <div id="chatbox">
-	<span  ng-repeat="post in chat">
+	<span class='message' ng-repeat="post in chat">
 		<span ng-show="post.username === profile.username">
 			<h5 class="post right">{{ post.body }}</h5>
 			<h6 class="date right"><span am-time-ago="post.time"></span></h6>
@@ -10,7 +10,6 @@
 			<h5 class="post">{{ post.username }} : {{ post.body }}</h5>
 			<h6 class="date"><span am-time-ago="post.time"></span></h6>
 		</span>
-
 	</span>
 </div>
 
