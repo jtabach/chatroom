@@ -1,9 +1,9 @@
 #chatbox {
 	overflow-y: scroll;
 	border: 1px solid black;
-	width: 60%;
+	width: 600px;
 	height: 400px;
-	padding: 2%;
+	padding: 20px;
 }
 
 .message {
@@ -12,12 +12,31 @@
 
 .post {
 	margin: 0;
-}
-
-.date {
-	margin: 0 0 10px 0;
+	width: auto;
 }
 
 .right {
+	float:right;
+	clear: both;
+	text-align: left;
+	background : lightblue;
+	margin: 5px 0 5px 160px;
+	padding: 5px 20px;
+	border-radius: 20px;
+}
+
+.left {
+	float: left;
+	clear: both;
+	text-align: left;
+	background : lightgray;
+	margin: 5px 160px 5px 0;
+	padding: 5px 20px;
+	border-radius: 20px;
+}
+
+.date {
+	margin: 0;
+	width: auto;
 	text-align: right;
 }
